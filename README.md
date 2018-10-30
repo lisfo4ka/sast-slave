@@ -16,6 +16,7 @@ It is required in the Jenkins Nightly Pipeline to send reports about
 
 The dojo_upload.py script requires the following parameters as OS environment variables:
 
+```
 export DOJO_API_HOST=https://defect-dojo-edp-cicd-vlg1.epam-dev.aws-rgn-vlgn.com // or 'defect-dojo' service in Jenkins Pipelines
 export DOJO_API_KEY=your_api_key_from_DefectDojo // take it from https://defect-dojo-edp-cicd-vlg1.epam-dev.aws-rgn-vlgn.com/api/key
 export DOJO_API_USER=admin
@@ -25,3 +26,4 @@ export DOJO_SCAN_TYPE='SpotBugs Scan' // Scan type which should exist in DefectD
 export DOJO_API_FILE=$HOME/spotbugs-report-all.xml // path to report file
 export DOJO_API_ACTIVATE='True'
 export DOJO_API_DATE=$(date +%F)
+```
