@@ -19,3 +19,7 @@ RUN yum install -y epel-release && \
 RUN pip install defectdojo_api
 
 COPY defectdojo_api/dojo_upload.py .
+
+RUN chmod 777 $SPOTBUGS_HOME/plugin/findsecbugs-plugin-1.8.0.jar dojo_upload.py
+
+USER 1001
