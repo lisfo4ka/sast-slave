@@ -1,4 +1,4 @@
-FROM openshift/jenkins-slave-base-centos7
+FROM openshift/jenkins-slave-maven-centos7
 
 ENV SPOTBUG_VER 3.1.3
 ENV HOME /home/jenkins
@@ -12,7 +12,9 @@ RUN wget -O spotbugs-$SPOTBUG_VER.tgz http://repo.maven.apache.org/maven2/com/gi
 
 ADD https://search.maven.org/remotecontent?filepath=com/h3xstream/findsecbugs/findsecbugs-plugin/1.8.0/findsecbugs-plugin-1.8.0.jar $SPOTBUGS_HOME/plugin/findsecbugs-plugin-1.8.0.jar
 
-RUN yum install -y epel-release && \
+USER root
+
+RUN yum install -y vim epel-release && \
     yum install -y python-pip && \
     yum clean all
 
