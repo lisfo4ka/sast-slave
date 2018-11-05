@@ -1,4 +1,5 @@
 from defectdojo_api import defectdojo
+from datetime import datetime, timedelta
 import requests
 import os
 
@@ -10,7 +11,8 @@ engagement_id = os.environ['DOJO_ENGAGEMENT_ID']
 scan_type = os.environ['DOJO_SCAN_TYPE']
 scan_file = os.environ['DOJO_API_FILE']
 active = os.environ['DOJO_API_ACTIVATE']
-scan_date = os.environ['DOJO_API_DATE']
+date = datetime.now()
+scan_date = date.strftime("%Y-%m-%d")
 
 dd = defectdojo.DefectDojoAPI(host, api_key, user, debug=True)
 
